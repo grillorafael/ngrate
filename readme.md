@@ -60,7 +60,7 @@ In case one migration fails, the state left will be up to the latest successful 
 
 ## Strategies
 
-ngrate is based on migration strategies which is a interface that can be found [here](filllink)
+ngrate is based on migration strategies which is a interface that can be found [here](https://github.com/grillorafael/ngrate/blob/master/strategies/abstract-strategy.js)
 
 You can write your own strategy by implementing those methods. By default, this library comes with a local file strategy.
 
