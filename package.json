@@ -1,0 +1,26 @@
+{
+    "name": "ngrate",
+    "version": "1.0.0rc1",
+    "description": "A simple and database agnostic migrations system",
+    "keywords": [
+        "migration",
+        "database"
+    ],
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/grillorafael/ngrate"
+    },
+    "bin": {
+        "ngrate": "./commands/ngrate.js"
+    },
+    "license": "MIT",
+    "dependencies": {
+        "async": "^2.1.1",
+        "commander": "^2.9.0",
+        "lodash": "^4.16.4",
+        "winston": "^2.2.0"
+    }
+}

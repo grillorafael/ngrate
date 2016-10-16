@@ -1,0 +1,6 @@
+.idea
+node_modules
+*.iml
+migrations
+migration-data.json
+.ngrate.js
