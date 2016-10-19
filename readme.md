@@ -1,4 +1,4 @@
-# ngrate
+# ngrate [![Build Status](https://travis-ci.org/grillorafael/ngrate.svg)](https://travis-ci.org/grillorafael/ngrate)
 
 [![NPM](https://nodei.co/npm/ngrate.png)](https://nodei.co/npm/ngrate/)
 
@@ -72,6 +72,7 @@ This file should look like this
 
 ````javascript
 module.exports = {
+    migrationsDir: 'migrations',
     strategy: require('./strategies/local-strategy')
 };
 ````

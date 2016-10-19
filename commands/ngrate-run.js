@@ -8,20 +8,9 @@ const series = require('async/series');
 
 program.parse(process.argv);
 
-const CustomConfigModule = path.join(process.cwd(), '.ngrate.js');
+const config = require('../config');
 
-const MigrationDir = 'migrations';
-
-let config = {
-    strategy: require('../strategies/local-strategy')
-};
-
-try {
-    config = require(CustomConfigModule);
-} catch(e) {
-    log.warn('Custom config not found. Using default instead.')
-}
-
+const MigrationDir = config.migrationsDir;
 const Strategy = config.strategy;
 
 Strategy.lastMigrationDate()
@@ -61,6 +50,6 @@ function createMigrationTask(migration) {
 function exitWithFailure(e = '') {
     return (error) => {
         log.error(`Failed to run migrations\n\n`, error);
-        process.exit(1);  
+        process.exit(1);
     };
 }

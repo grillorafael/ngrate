@@ -5,13 +5,14 @@ const log = require('../log');
 const fs = require('fs');
 const path = require('path');
 
-const MigrationDir = 'migrations';
-
 program.parse(process.argv);
 
-const migrationName = program.args ? program.args[0] : undefined;
+let config = require('../config');
 
+const MigrationDir = config.migrationsDir;
 const MigrationTemplate = fs.readFileSync(path.join(__dirname, '..', 'migration-template.tjs'), 'utf8');
+
+const migrationName = program.args ? program.args[0] : undefined;
 
 if(migrationName) {
     const at = new Date().valueOf();
@@ -22,8 +23,8 @@ if(migrationName) {
 
     if(!fs.existsSync(MigrationDir)) fs.mkdirSync(MigrationDir);
 
-    const migrationContent = 
+    const migrationContent =
         MigrationTemplate.replace(/<Name>/g, migrationName).replace(/<CreatedAt>/g, at);
-    
+
     fs.writeFileSync(destinationFile, migrationContent, 'utf8');
 } else log.error('Cannot create migration. Name not specified');
