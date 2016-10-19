@@ -72,6 +72,7 @@ This file should look like this
 
 ````javascript
 module.exports = {
+    migrationsDir: 'migrations',
     strategy: require('./strategies/local-strategy')
 };
 ````
